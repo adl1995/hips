@@ -5,6 +5,6 @@ __all__ = [
     'make_sky_image'
 ]
 
+
 def make_sky_image():
     """TOOD"""
-    format = 2

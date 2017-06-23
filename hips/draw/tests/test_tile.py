@@ -2,6 +2,7 @@
 
 import pytest
 
+
 @pytest.mark.xfail
 def test_make_sky_image():
     pass
