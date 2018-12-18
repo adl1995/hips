@@ -29,6 +29,12 @@ docs/_build
 # Pycharm editor project files
 .idea
 
+# VS Code editor project files
+.vscode
+
+# Mypy cache
+.mypy_cache
+
 # Floobits project files
 .floo
 .flooignore
@@ -59,3 +65,7 @@ distribute-*.tar.gz
 
 # Mac OSX
 .DS_Store
+
+v
+
+hips-extra

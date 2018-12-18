@@ -2,25 +2,16 @@ name: hips
 
 channels:
     - conda-forge
-    - astropy
-    # added because it has healpy for Python 3.6:
-    # https://anaconda.org/OpenAstronomy/healpy
-    # which at this time the other channels don't have
-    - openastronomy
 
 dependencies:
-    # TODO: change to Python 3.6 once it's supported:
-    # https://github.com/rtfd/readthedocs.org/issues/2584#issuecomment-304366679
-    - python=3.5
+    - python=3.6
     - numpy
     - astropy
-    # TODO: no Python 3.6 package for healpy available yet
-    # See https://readthedocs.org/projects/hips/builds/5476419/
-    - healpy
+    - astropy-healpix
     - reproject
     - matplotlib
-    # There's a problem with Sphinx 1.6 with astropy-helpers
-    # For now, we pin the Sphinx version to something that works
-    - sphinx==1.5.6
+    - tqdm
+    - aiohttp
+    - sphinx
     - pip:
         - sphinx_rtd_theme

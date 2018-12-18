@@ -24,12 +24,12 @@ conf = ConfigParser()
 conf.read(['setup.cfg'])
 metadata = dict(conf.items('metadata'))
 
-PACKAGENAME = metadata.get('package_name', 'hips')
-DESCRIPTION = metadata.get('description', 'Python astronomy package for HiPS')
-AUTHOR = metadata.get('author', 'HiPS developers')
-AUTHOR_EMAIL = metadata.get('author_email', '')
-LICENSE = metadata.get('license', 'unknown')
-URL = metadata.get('url', 'https://github.com/hipspy/hips')
+PACKAGENAME = metadata['package_name']
+DESCRIPTION = metadata['description']
+AUTHOR = metadata['author']
+AUTHOR_EMAIL = metadata['author_email']
+LICENSE = metadata['license']
+URL = metadata['url']
 
 with open('LONG_DESCRIPTION.rst') as f:
     LONG_DESCRIPTION = f.read()
@@ -39,7 +39,7 @@ with open('LONG_DESCRIPTION.rst') as f:
 builtins._ASTROPY_PACKAGE_NAME_ = PACKAGENAME
 
 # VERSION should be PEP440 compatible (http://www.python.org/dev/peps/pep-0440)
-VERSION = metadata.get('version', '0.0.dev')
+VERSION = metadata.get('version')
 
 # Indicates if this version is a release version
 RELEASE = 'dev' not in VERSION
@@ -97,22 +97,25 @@ package_info['package_data'][PACKAGENAME].extend(c_files)
 install_requires = [
     'numpy>=1.11',
     'astropy>=1.3',
-    # No healpy package for 1.10 available yet, leading to this error:
-    # https://readthedocs.org/projects/hips/builds/5483435/
-    # So for now, only require 1.9
-    'healpy>=1.9',
+    'astropy-healpix',
+    'scikit-image',
+    'Pillow',
 ]
 
 extras_require = dict(
     recommended=[
         'matplotlib>=2.0',
         'reproject>=0.3.1',
+        'tqdm',
+        'aiohttp',
     ],
     develop=[
         'matplotlib>=2.0',
         'reproject>=0.3.1',
-        'pytest>=2.8',
+        'pytest>=3.0',
         'mypy>=0.501',
+        'tqdm',
+        'aiohttp',
     ],
 )
 
